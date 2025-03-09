@@ -1,0 +1,51 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333;
+  padding: 1rem;
+}
+nav .nav-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+nav .nav-list li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+nav .nav-list li a:hover {
+  color: #f4a261;
+}
+nav .menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+nav .menu-toggle .bar {
+  background: white;
+  height: 4px;
+  width: 25px;
+  margin: 3px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #333;
+    padding: 10px 0;
+  }
+  .nav-list.active {
+    display: flex;
+  }
+}
