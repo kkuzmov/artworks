@@ -2,10 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuToggle = document.getElementById("mobile-menu");
   const navList = document.querySelector(".nav-list");
   const gallery = document.getElementById("gallery");
+  const searchInput = document.getElementById("search-input");
+  const searchButton = document.getElementById("search-button");
 
   let page = 1;
   let isLoading = false;
   let category = null;
+  let searchQuery = "";
 
   if (menuToggle) {
     menuToggle.addEventListener("click", function () {
@@ -37,13 +40,24 @@ document.addEventListener("DOMContentLoaded", function () {
     loader.style.display = "none";
   }
 
-  function fetchArtworks() {
-    if (!category || isLoading) return;
+  function fetchArtworks(reset = false) {
+    if ((!category && !searchQuery) || isLoading) return;
 
     isLoading = true;
     showLoader();
 
-    const apiUrl = `https://api.artic.edu/api/v1/artworks/search?q=${category}&fields=id,title,image_id,artist_title,date_display,artwork_type_title&limit=10&page=${page}`;
+    if (reset) {
+      gallery.innerHTML = ""; // Clear gallery on new search
+      page = 1;
+    }
+
+    let apiUrl = `https://api.artic.edu/api/v1/artworks/search?fields=id,title,image_id,artist_title,date_display,artwork_type_title&limit=10&page=${page}`;
+
+    if (searchQuery) {
+      apiUrl += `&q=${searchQuery}`;
+    } else {
+      apiUrl += `&q=${category}`;
+    }
 
     fetch(apiUrl)
       .then((response) => response.json())
@@ -51,23 +65,21 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!gallery) return;
 
         data.data.forEach((artwork) => {
-          if (artwork.artwork_type_title === category) {
-            const artItem = document.createElement("div");
-            artItem.classList.add("art-item");
-            artItem.innerHTML = `
-                          <img src="https://www.artic.edu/iiif/2/${
-                            artwork.image_id
-                          }/full/300,/0/default.jpg" alt="${artwork.title}">
-                          <h2>${artwork.title}</h2>
-                          <p><strong>Artist:</strong> ${
-                            artwork.artist_title || "Unknown"
-                          }</p>
-                          <p><strong>Year:</strong> ${
-                            artwork.date_display || "N/A"
-                          }</p>
-                      `;
-            gallery.appendChild(artItem);
-          }
+          const artItem = document.createElement("div");
+          artItem.classList.add("art-item");
+          artItem.innerHTML = `
+                      <img src="https://www.artic.edu/iiif/2/${
+                        artwork.image_id
+                      }/full/300,/0/default.jpg" alt="${artwork.title}">
+                      <h2>${artwork.title}</h2>
+                      <p><strong>Artist:</strong> ${
+                        artwork.artist_title || "Unknown"
+                      }</p>
+                      <p><strong>Year:</strong> ${
+                        artwork.date_display || "N/A"
+                      }</p>
+                  `;
+          gallery.appendChild(artItem);
         });
 
         hideLoader();
@@ -93,4 +105,19 @@ document.addEventListener("DOMContentLoaded", function () {
       fetchArtworks();
     }
   });
+
+  // Search functionality
+  if (searchButton && searchInput) {
+    searchButton.addEventListener("click", function () {
+      searchQuery = searchInput.value.trim();
+      fetchArtworks(true);
+    });
+
+    searchInput.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        searchQuery = searchInput.value.trim();
+        fetchArtworks(true);
+      }
+    });
+  }
 });

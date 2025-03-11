@@ -45,6 +45,31 @@ nav .menu-toggle .bar {
   animation: spin 1s linear infinite;
 }
 
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+.search-container input {
+  padding: 8px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.search-container button {
+  padding: 8px 12px;
+  margin-left: 8px;
+  background: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.search-container button:hover {
+  background: #555;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
