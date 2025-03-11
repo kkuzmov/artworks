@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
   const menuToggle = document.getElementById("mobile-menu");
   const navList = document.querySelector(".nav-list");
+  const gallery = document.getElementById("gallery");
+
+  let page = 1;
+  let isLoading = false;
+  let category = null;
 
   if (menuToggle) {
     menuToggle.addEventListener("click", function () {
@@ -8,18 +13,45 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  function fetchArtworks(typeTitle) {
-    const apiUrl = `https://api.artic.edu/api/v1/artworks/search?q=${typeTitle}&fields=id,title,image_id,artist_title,date_display,artwork_type_title&limit=10`;
+  // Detect category based on the page filename
+  const pageName = window.location.pathname.split("/").pop();
+
+  if (pageName.includes("paintings")) {
+    category = "Painting";
+  } else if (pageName.includes("sculptures")) {
+    category = "Sculpture";
+  } else if (pageName.includes("textiles")) {
+    category = "Textile";
+  }
+
+  // Create loader element
+  const loader = document.createElement("div");
+  loader.classList.add("loader");
+  document.body.appendChild(loader);
+
+  function showLoader() {
+    loader.style.display = "block";
+  }
+
+  function hideLoader() {
+    loader.style.display = "none";
+  }
+
+  function fetchArtworks() {
+    if (!category || isLoading) return;
+
+    isLoading = true;
+    showLoader();
+
+    const apiUrl = `https://api.artic.edu/api/v1/artworks/search?q=${category}&fields=id,title,image_id,artist_title,date_display,artwork_type_title&limit=10&page=${page}`;
 
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
-        const gallery = document.getElementById("gallery");
         if (!gallery) return;
-        gallery.innerHTML = "";
 
         data.data.forEach((artwork) => {
-          if (artwork.artwork_type_title === typeTitle) {
+          if (artwork.artwork_type_title === category) {
             const artItem = document.createElement("div");
             artItem.classList.add("art-item");
             artItem.innerHTML = `
@@ -37,24 +69,28 @@ document.addEventListener("DOMContentLoaded", function () {
             gallery.appendChild(artItem);
           }
         });
+
+        hideLoader();
+        isLoading = false;
+        page++;
       })
-      .catch((error) => console.error("Error fetching artworks:", error));
+      .catch((error) => {
+        console.error("Error fetching artworks:", error);
+        hideLoader();
+        isLoading = false;
+      });
   }
 
-  // Detect category based on page filename
-  const page = window.location.pathname.split("/").pop();
-  let category = null;
+  // Initial fetch
+  fetchArtworks();
 
-  if (page.includes("paintings")) {
-    category = "Painting";
-  } else if (page.includes("sculptures")) {
-    category = "Sculpture";
-  } else if (page.includes("ceramics")) {
-    category = "Ceramics";
-  }
-
-  // Fetch artworks only if a category is detected
-  if (category) {
-    fetchArtworks(category);
-  }
+  // Infinite scroll event listener
+  window.addEventListener("scroll", function () {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.body.offsetHeight - 100
+    ) {
+      fetchArtworks();
+    }
+  });
 });
