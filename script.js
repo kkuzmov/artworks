@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const gallery = document.getElementById("gallery");
   const searchInput = document.getElementById("search-input");
   const searchButton = document.getElementById("search-button");
+  const modal = document.getElementById("art-modal");
+  const modalContent = document.getElementById("modal-content");
+  const modalClose = document.getElementById("modal-close");
 
   let page = 1;
   let isLoading = false;
@@ -16,18 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Detect category based on the page filename
   const pageName = window.location.pathname.split("/").pop();
+  if (pageName.includes("paintings")) category = "Painting";
+  else if (pageName.includes("sculptures")) category = "Sculpture";
+  else if (pageName.includes("drawings")) category = "Drawing";
 
-  if (pageName.includes("paintings")) {
-    category = "Painting";
-  } else if (pageName.includes("sculptures")) {
-    category = "Sculpture";
-  } else if (pageName.includes("textiles")) {
-    category = "Textile";
-  }
-
-  // Create loader element
   const loader = document.createElement("div");
   loader.classList.add("loader");
   document.body.appendChild(loader);
@@ -35,35 +31,28 @@ document.addEventListener("DOMContentLoaded", function () {
   function showLoader() {
     loader.style.display = "block";
   }
-
   function hideLoader() {
     loader.style.display = "none";
   }
 
   function fetchArtworks(reset = false) {
     if ((!category && !searchQuery) || isLoading) return;
-
     isLoading = true;
     showLoader();
 
     if (reset) {
-      gallery.innerHTML = ""; // Clear gallery on new search
+      gallery.innerHTML = "";
       page = 1;
     }
 
     let apiUrl = `https://api.artic.edu/api/v1/artworks/search?fields=id,title,image_id,artist_title,date_display,artwork_type_title&limit=10&page=${page}`;
-
-    if (searchQuery) {
-      apiUrl += `&q=${searchQuery}`;
-    } else {
-      apiUrl += `&q=${category}`;
-    }
+    if (searchQuery) apiUrl += `&q=${searchQuery}`;
+    else apiUrl += `&q=${category}`;
 
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
         if (!gallery) return;
-
         data.data.forEach((artwork) => {
           const artItem = document.createElement("div");
           artItem.classList.add("art-item");
@@ -78,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
                       <p><strong>Year:</strong> ${
                         artwork.date_display || "N/A"
                       }</p>
+                      <span class="zoom-icon" data-id="${artwork.id}">🔍</span>
                   `;
           gallery.appendChild(artItem);
         });
@@ -93,10 +83,60 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
-  // Initial fetch
-  fetchArtworks();
+  // Open modal on zoom click
+  gallery.addEventListener("click", function (event) {
+    if (event.target.classList.contains("zoom-icon")) {
+      const artworkId = event.target.getAttribute("data-id");
+      fetchArtworkDetails(artworkId);
+    }
+  });
 
-  // Infinite scroll event listener
+  // Fetch artwork details for modal
+  function fetchArtworkDetails(id) {
+    showLoader();
+    fetch(
+      `https://api.artic.edu/api/v1/artworks/${id}?fields=id,title,image_id,artist_title,date_display,medium_display,dimensions,description`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        const artwork = data.data;
+        modalContent.innerHTML = `
+                  <span id="modal-close">&times;</span>
+                  <img src="https://www.artic.edu/iiif/2/${
+                    artwork.image_id
+                  }/full/600,/0/default.jpg" alt="${artwork.title}">
+                  <h2>${artwork.title}</h2>
+                  <p><strong>Artist:</strong> ${
+                    artwork.artist_title || "Unknown"
+                  }</p>
+                  <p><strong>Year:</strong> ${artwork.date_display || "N/A"}</p>
+                  <p><strong>Medium:</strong> ${
+                    artwork.medium_display || "Unknown"
+                  }</p>
+                  <p><strong>Dimensions:</strong> ${
+                    artwork.dimensions || "N/A"
+                  }</p>
+                  <p><strong>Description:</strong> ${
+                    artwork.description || "No description available."
+                  }</p>
+              `;
+        modal.style.display = "block";
+        hideLoader();
+      })
+      .catch((error) => {
+        console.error("Error fetching artwork details:", error);
+        hideLoader();
+      });
+  }
+
+  // Close modal
+  modal.addEventListener("click", function (event) {
+    if (event.target.id === "modal-close" || event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  // Infinite scroll
   window.addEventListener("scroll", function () {
     if (
       window.innerHeight + window.scrollY >=
@@ -120,4 +160,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  fetchArtworks();
 });
