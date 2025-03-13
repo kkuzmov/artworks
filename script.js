@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const pageName = window.location.pathname.split("/").pop();
   if (pageName.includes("paintings")) category = "Painting";
   else if (pageName.includes("sculptures")) category = "Sculpture";
-  else if (pageName.includes("drawings")) category = "Drawing";
+  else if (pageName.includes("textiles")) category = "Textile";
 
   const loader = document.createElement("div");
   loader.classList.add("loader");
