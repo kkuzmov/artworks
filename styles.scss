@@ -1,9 +1,11 @@
+@import'_variables.scss';
+
 /* Global Styles */
 body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
-  background-color: #f8f1e4;
-  color: #333;
+  background-color: $lightGray;
+  color: $gray2;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -13,7 +15,7 @@ body {
 
 /* Header and Navigation */
 header {
-  background-color: #6d4c41;
+  background-color: $secondaryColor;
   color: white;
   padding: 20px;
   text-align: center;
@@ -26,7 +28,7 @@ nav {
   display: flex;
   justify-content: center;
   padding: 10px 0;
-  background: #8d6e63;
+  background: $mainColor;
 }
 
 main {
@@ -35,7 +37,7 @@ main {
 }
 
 footer {
-  background: #6d4c41;
+  background: $secondaryColor;
   color: white;
   text-align: center;
   padding: 15px;
@@ -63,7 +65,7 @@ footer {
 }
 
 .nav-list a:hover {
-  color: #f8f1e4;
+  color: $lightGray;
 }
 
 .xg-title {
@@ -88,7 +90,7 @@ footer {
 .search-container input {
   padding: 8px;
   width: 250px;
-  border: 2px solid #8d6e63;
+  border: 2px solid $mainColor;
   border-radius: 5px;
   font-size: 16px;
 }
@@ -96,7 +98,7 @@ footer {
 .search-container button {
   padding: 8px 12px;
   margin-left: 8px;
-  background: #5d4037;
+  background: $secondaryColor;
   color: white;
   border: none;
   cursor: pointer;
@@ -142,12 +144,12 @@ footer {
 .art-item h2 {
   font-size: 1.3em;
   margin: 10px 0;
-  color: #6d4c41;
+  color: $secondaryColor;
 }
 
 .art-item p {
   font-size: 1em;
-  color: #444;
+  color: $gray1;
 }
 
 /* Artwork Card */
@@ -270,7 +272,7 @@ footer {
   .nav-list {
     display: none;
     flex-direction: column;
-    background: #8d6e63;
+    background: $mainColor;
     position: absolute;
     width: 100%;
     left: 0;
