@@ -1,6 +1,7 @@
 /* Global Styles */
 body {
-  font-family: "Georgia", serif;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   background-color: #f8f1e4;
   color: #333;
   margin: 0;
@@ -63,6 +64,16 @@ footer {
 
 .nav-list a:hover {
   color: #f8f1e4;
+}
+
+.xg-title {
+  text-align: center;
+}
+.xg-title > span {
+  font-family: "Cinzel Decorative", serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 65px;
 }
 
 /* Search Bar */
