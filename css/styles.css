@@ -65,6 +65,21 @@ footer {
   text-underline-offset: 5px;
   color: white;
 }
+.nav-list a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #41EAD4;
+  transition: all 0.3s ease;
+}
+.nav-list a:hover {
+  color: #41EAD4;
+  transform: scale(1.1);
+  /* Slightly grows the text */
+}
 
 .xg-title {
   text-align: center;
