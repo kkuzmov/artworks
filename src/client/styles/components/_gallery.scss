@@ -1,0 +1,92 @@
+#gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+}
+
+.art-item {
+  flex: 1 1 250px;
+  /* Flexible width, minimum 250px */
+  max-width: 300px;
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.art-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.art-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.art-item h2 {
+  font-size: 1.3em;
+  margin: 10px 0;
+  color: $secondaryColor;
+}
+
+.art-item p {
+  font-size: 1em;
+  color: $gray1;
+}
+
+/* Artwork Card */
+.art-item {
+  position: relative;
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+
+}
+
+.art-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+
+  .zoom-icon {
+    opacity: 1;
+
+  }
+}
+
+/* Zoom Icon */
+.zoom-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 2em;
+  cursor: pointer;
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+  opacity: 0.4;
+}
+
+/* Loader */
+.loader {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #c80000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
