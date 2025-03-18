@@ -1,0 +1,28 @@
+{
+    "name": "kuzmart",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "fonts": "gulp fonts",
+        "start": "gulp"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "browser-sync": "^2.27.7",
+        "glob": "^7.2.0",
+        "gulp": "^4.0.2",
+        "gulp-compile-handlebars": "^0.6.1",
+        "gulp-concat": "^2.6.1",
+        "gulp-rename": "^2.0.0",
+        "gulp-sass": "^5.0.0",
+        "gulp-ttf2woff": "^1.1.1",
+        "gulp-uglify": "^3.0.2",
+        "sass": "^1.43.4",
+        "zip-dir": "^2.0.0"
+    },
+    "dependencies": {
+        "json-server": "^0.17.0"
+    }
+}
