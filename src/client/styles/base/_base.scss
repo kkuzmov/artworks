@@ -1,0 +1,11 @@
+body {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  background-color: $lightGray;
+  color: $gray2;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
