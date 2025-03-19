@@ -23,6 +23,11 @@ main {
   padding: 40px 60px;
 }
 
+@media (max-width: 768px) {
+  main {
+    padding: 20px;
+  }
+}
 footer {
   background: radial-gradient(circle, #9D4EDD, #FFFFFF);
   color: white;
@@ -360,4 +365,13 @@ nav {
 
 .cta-card:hover .cta-content {
   background: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .xg-title > span {
+    font-size: 60px;
+  }
+  section {
+    text-align: center;
+  }
 }

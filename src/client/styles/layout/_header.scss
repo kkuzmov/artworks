@@ -1,4 +1,5 @@
 @use "../abstracts/variables";
+@use "../abstracts/mixins";
 
 header {
   background-color: variables.$purple;
@@ -75,7 +76,7 @@ nav {
   background-color: white;
 }
 
-@include mobile {
+@include mixins.mobile {
   .menu-toggle {
     display: block;
   }

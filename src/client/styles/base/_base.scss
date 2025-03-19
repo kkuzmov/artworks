@@ -1,4 +1,5 @@
 @use "../abstracts/variables";
+@use "../abstracts/mixins";
 
 body {
   font-family: "Playfair Display", serif;
@@ -15,4 +16,10 @@ body {
 main {
   flex: 1;
   padding: 40px 60px;
+}
+
+@include mixins.mobile {
+  main {
+    padding: 20px;
+  }
 }

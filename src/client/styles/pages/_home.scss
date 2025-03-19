@@ -1,4 +1,5 @@
 @use "../abstracts/variables";
+@use "../abstracts/mixins";
 
 .xg-title {
   text-align: center;
@@ -17,6 +18,8 @@
   }
 
 }
+
+
 
 /* CTA Section */
 #discover-cta {
@@ -76,4 +79,16 @@
 
 .cta-card:hover .cta-content {
   background: rgba(0, 0, 0, 0.3);
+}
+
+@include mixins.mobile {
+  .xg-title {
+    &>span {
+      font-size: 60px;
+    }
+  }
+
+  section {
+    text-align: center;
+  }
 }
