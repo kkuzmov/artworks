@@ -1,4 +1,5 @@
 @use "../abstracts/variables";
+@use "../abstracts/mixins";
 
 /* Search Bar */
 .search-container {
@@ -30,4 +31,11 @@
 
 .search-container button:hover {
   background: #3e2723;
+}
+
+@include mixins.mobile {
+  .search-container {
+    top: 25px;
+    right: 10px;
+  }
 }

@@ -110,18 +110,22 @@ nav {
     display: block;
   }
   .nav-list {
-    display: none;
     flex-direction: column;
-    background: #7e4a4a;
+    background: #9D4EDD;
     position: absolute;
     width: 100%;
     left: 0;
-    top: 60px;
+    top: 40px;
     text-align: center;
     padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
   }
   .nav-list.active {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
   }
   .nav-list li {
     margin: 10px 0;
@@ -292,6 +296,12 @@ nav {
   background: #3e2723;
 }
 
+@media (max-width: 768px) {
+  .search-container {
+    top: 25px;
+    right: 10px;
+  }
+}
 .xg-title {
   text-align: center;
 }
