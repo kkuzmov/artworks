@@ -1,8 +1,10 @@
+@use "../abstracts/variables";
+
 body {
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
-  background-color: $lightGray;
-  color: $gray2;
+  background-color: variables.$lightGray;
+  color: variables.$gray2;
   margin: 0;
   padding: 0;
   height: 100%;

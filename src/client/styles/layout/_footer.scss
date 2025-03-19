@@ -1,5 +1,7 @@
+@use "../abstracts/variables";
+
 footer {
-  background: $footerGradient;
+  background: variables.$footerGradient;
   color: white;
   text-align: center;
   padding: 15px;

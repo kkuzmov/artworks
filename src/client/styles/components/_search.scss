@@ -1,3 +1,5 @@
+@use "../abstracts/variables";
+
 /* Search Bar */
 .search-container {
   display: flex;
@@ -11,7 +13,7 @@
 .search-container input {
   padding: 8px;
   width: 250px;
-  border: 2px solid $mainColor;
+  border: 2px solid variables.$mainColor;
   border-radius: 5px;
   font-size: 16px;
 }
@@ -19,7 +21,7 @@
 .search-container button {
   padding: 8px 12px;
   margin-left: 8px;
-  background: $secondaryColor;
+  background: variables.$secondaryColor;
   color: white;
   border: none;
   cursor: pointer;

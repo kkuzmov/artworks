@@ -1,3 +1,5 @@
+@use "../abstracts/variables";
+
 #gallery {
   display: flex;
   flex-wrap: wrap;
@@ -32,12 +34,12 @@
 .art-item h2 {
   font-size: 1.3em;
   margin: 10px 0;
-  color: $secondaryColor;
+  color: variables.$secondaryColor;
 }
 
 .art-item p {
   font-size: 1em;
-  color: $gray1;
+  color: variables.$gray1;
 }
 
 /* Artwork Card */
