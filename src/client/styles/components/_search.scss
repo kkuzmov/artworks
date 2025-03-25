@@ -12,22 +12,32 @@
   input {
     padding: 8px;
     width: 250px;
-    border: 2px solid variables.$mainColor;
+    border: 2px solid variables.$purple;
     border-radius: 5px;
     font-size: 16px;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 5px variables.$white;
+    }
   }
 
   button {
     padding: 8px 12px;
     margin-left: 8px;
-    background: variables.$secondaryColor;
+    background: variables.$purple;
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 5px;
 
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 5px variables.$white;
+    }
+
     &:hover {
-      background: #3e2723;
+      background: variables.$purple;
     }
   }
 }

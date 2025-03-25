@@ -270,21 +270,29 @@ nav {
 .search-container input {
   padding: 8px;
   width: 250px;
-  border: 2px solid #7e4a4a;
+  border: 2px solid #9D4EDD;
   border-radius: 5px;
   font-size: 16px;
+}
+.search-container input:focus {
+  outline: none;
+  box-shadow: 0 0 5px #fff;
 }
 .search-container button {
   padding: 8px 12px;
   margin-left: 8px;
-  background: #6d4c41;
+  background: #9D4EDD;
   color: white;
   border: none;
   cursor: pointer;
   border-radius: 5px;
 }
+.search-container button:focus {
+  outline: none;
+  box-shadow: 0 0 5px #fff;
+}
 .search-container button:hover {
-  background: #3e2723;
+  background: #9D4EDD;
 }
 
 @media (max-width: 768px) {
