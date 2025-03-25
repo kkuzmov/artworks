@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
                       <p><strong>Year:</strong> ${
                         artwork.date_display || "N/A"
                       }</p>
-                      <img src="../client/assets/images/zoom.png" width="45px" height="45px" class="zoom-icon" data-id="${
+                      <img src="../client/assets/images/zoom.png" width="35px" alt="Open additional info" height="35px" class="zoom-icon" data-id="${
                         artwork.id
                       }">
                   `;
