@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         const artwork = data.data;
         modalContent.innerHTML = `
-                  <span id="modal-close">&times;</span>
+                  <span id="modal-close" class="modal__close">&times;</span>
                   <img src="https://www.artic.edu/iiif/2/${
                     artwork.image_id
                   }/full/600,/0/default.jpg" alt="${artwork.title}">
