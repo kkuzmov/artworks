@@ -25,7 +25,7 @@
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.art-item img {
+.art-item>img:not(.zoom-icon) {
   width: 100%;
   height: auto;
   border-radius: 8px;
@@ -68,13 +68,9 @@
 /* Zoom Icon */
 .zoom-icon {
   position: absolute;
-  top: 15px;
+  bottom: 15px;
   right: 15px;
-  font-size: 2em;
   cursor: pointer;
-  color: white;
-  padding: 5px;
-  border-radius: 50%;
   opacity: 0.4;
 }
 

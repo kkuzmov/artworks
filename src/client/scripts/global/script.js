@@ -67,7 +67,9 @@ document.addEventListener("DOMContentLoaded", function () {
                       <p><strong>Year:</strong> ${
                         artwork.date_display || "N/A"
                       }</p>
-                      <span class="zoom-icon" data-id="${artwork.id}">🔍</span>
+                      <img src="../client/assets/images/zoom.png" width="45px" height="45px" class="zoom-icon" data-id="${
+                        artwork.id
+                      }">
                   `;
           gallery.appendChild(artItem);
         });
