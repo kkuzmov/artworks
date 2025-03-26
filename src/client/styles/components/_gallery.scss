@@ -51,7 +51,7 @@
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   cursor: pointer;
-  border: 2px solid #FFD700;
+  border: 2px solid variables.$yellow;
 }
 
 .art-item:hover {

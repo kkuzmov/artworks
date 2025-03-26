@@ -76,7 +76,7 @@ nav {
   text-underline-offset: 5px;
   color: #FFD700;
   text-shadow: 0 0 1px #FFD700, 0 0 10px #FFD700, 0 0 5px #FFD700, 0 0 40px #FFD700;
-  letter-spacing: 0.5px;
+  letter-spacing: px;
 }
 .nav-list a::before {
   content: "";
@@ -285,7 +285,7 @@ nav {
 .search-container input {
   padding: 8px;
   width: 250px;
-  border: 2px solid #9D4EDD;
+  border: 2px solid #FFD700;
   border-radius: 5px;
   font-size: 16px;
 }
@@ -301,13 +301,14 @@ nav {
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  transition: all;
 }
 .search-container button:focus {
   outline: none;
   box-shadow: 0 0 5px #fff;
 }
 .search-container button:hover {
-  background: #9D4EDD;
+  background: #FFD700;
 }
 
 @media (max-width: 768px) {
