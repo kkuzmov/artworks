@@ -251,7 +251,7 @@ nav {
   text-align: center;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
   position: relative;
-  border: 15px solid #9E7BFF;
+  border: 5px solid #FFD700;
 }
 .modal__content img {
   width: 100%;
