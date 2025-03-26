@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!gallery) return;
         data.data.forEach((artwork) => {
           const artItem = document.createElement("div");
+          artItem.setAttribute("tabindex", "0");
           artItem.classList.add("art-item");
           artItem.innerHTML = `
                       <img src="https://www.artic.edu/iiif/2/${
@@ -72,6 +73,12 @@ document.addEventListener("DOMContentLoaded", function () {
                       }">
                   `;
           gallery.appendChild(artItem);
+          artItem.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+              const zoomIcon = artItem.querySelector(".zoom-icon");
+              zoomIcon.click(); // Trigger click event when Enter is pressed
+            }
+          });
         });
 
         hideLoader();
@@ -134,11 +141,20 @@ document.addEventListener("DOMContentLoaded", function () {
   // Close modal
   modal.addEventListener("click", function (event) {
     if (event.target.id === "modal-close" || event.target === modal) {
-      modal.style.display = "none";
+      closeModal();
     }
   });
 
-  // Infinite scroll
+  document.addEventListener("keydown", handleEscapeKey);
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+  function handleEscapeKey(event) {
+    if (event.key === "Escape") {
+      closeModal();
+    }
+  } // Infinite scroll
   window.addEventListener("scroll", function () {
     if (
       window.innerHeight + window.scrollY >=
