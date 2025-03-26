@@ -190,6 +190,7 @@ nav {
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   cursor: pointer;
+  border: 2px solid #FFD700;
 }
 
 .art-item:hover {
@@ -239,24 +240,37 @@ nav {
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   overflow: auto;
+  backdrop-filter: blur(5px);
 }
 .modal__content {
   background: white;
-  margin: 10% auto;
-  padding: 20px;
-  width: 60%;
+  margin: 5% auto;
+  padding: 40px;
+  width: 70%;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  position: relative;
+  border: 15px solid #9E7BFF;
 }
 .modal__content img {
   width: 100%;
-  border-radius: 10px;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.45);
+  width: 100%;
+  max-width: 750px;
+  height: auto;
 }
 .modal__close {
-  font-size: 2em;
+  font-size: 4em;
+  line-height: 0.5;
   cursor: pointer;
-  float: right;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+.modal__close:hover {
+  transform: scale(1.1);
 }
 
 .search-container {
