@@ -17,7 +17,7 @@
   &__content {
     background: white;
     margin: 5% auto;
-    padding: 40px;
+    padding: 20px 40px 40px;
     width: 70%;
     border-radius: 10px;
     text-align: center;
@@ -31,6 +31,10 @@
       width: 100%;
       max-width: 750px;
       height: auto;
+    }
+
+    &>p {
+      font-size: 1.3em;
     }
 
   }
@@ -48,5 +52,11 @@
       transform: scale(1.1);
     }
   }
+
+  &__title {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+  }
+
 
 }

@@ -110,12 +110,12 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         const artwork = data.data;
         modalContent.innerHTML = `
+                  <h2 class="modal__title">${artwork.title}</h2>
                   <span id="modal-close" class="modal__close">&times;</span>
                   <div class="modal__image">
                   <img src="https://www.artic.edu/iiif/2/${
                     artwork.image_id
                   }/full/600,/0/default.jpg" alt="${artwork.title}"></div>
-                  <h2>${artwork.title}</h2>
                   <p><strong>Artist:</strong> ${
                     artwork.artist_title || "Unknown"
                   }</p>

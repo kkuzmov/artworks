@@ -246,7 +246,7 @@ nav {
 .modal__content {
   background: white;
   margin: 5% auto;
-  padding: 40px;
+  padding: 20px 40px 40px;
   width: 70%;
   border-radius: 10px;
   text-align: center;
@@ -261,6 +261,9 @@ nav {
   max-width: 750px;
   height: auto;
 }
+.modal__content > p {
+  font-size: 1.3em;
+}
 .modal__close {
   font-size: 4em;
   line-height: 0.5;
@@ -272,6 +275,10 @@ nav {
 }
 .modal__close:hover {
   transform: scale(1.1);
+}
+.modal__title {
+  font-size: 2.5em;
+  margin-bottom: 40px;
 }
 
 .search-container {
