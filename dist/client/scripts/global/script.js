@@ -198,4 +198,18 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   fetchArtworks();
+
+  let footer = document.querySelector("footer");
+  let scrollTimeout;
+
+  window.addEventListener("scroll", () => {
+    // Hide the footer while scrolling
+    footer.style.transform = "translateY(100%)";
+
+    // Clear previous timeout and set a new one
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      footer.style.transform = "translateY(0)"; // Show the footer after scrolling stops
+    }, 1000);
+  });
 });

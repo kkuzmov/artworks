@@ -4,6 +4,11 @@ footer {
   background: variables.$footerGradient;
   color: white;
   text-align: center;
-  padding: 15px;
+  padding: 0 15px;
   margin-top: auto;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
 }
