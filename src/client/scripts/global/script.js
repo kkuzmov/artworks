@@ -69,12 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
             artwork.title
           }" class="art-image"></div>
                     <h2>${artwork.title}</h2>
-                    <p><strong>Artist:</strong> ${
-                      artwork.artist_title || "Unknown"
-                    }</p>
-                    <p><strong>Year:</strong> ${
-                      artwork.date_display || "N/A"
-                    }</p>
+                    <p> ${artwork.artist_title || "Unknown"}</p>
                     <img src="../client/assets/images/zoom.png" width="35px" alt="Open additional info" height="35px" class="zoom-icon" data-id="${
                       artwork.id
                     }">
