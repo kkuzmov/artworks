@@ -47,8 +47,6 @@ footer {
   position: relative;
 }
 .header__wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -147,6 +145,11 @@ nav {
     margin: 10px 0;
   }
 }
+.wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
 #gallery {
   display: flex;
   flex-wrap: wrap;
