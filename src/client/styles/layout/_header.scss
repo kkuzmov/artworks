@@ -2,21 +2,24 @@
 @use "../abstracts/mixins";
 
 header {
-  background-color: variables.$purple;
+  background: variables.$navGradient;
+
   color: white;
-  padding: 0 0 3px 0;
+  padding: 0 40px;
   text-align: center;
   font-size: 1.5em;
   font-weight: bold;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 
 nav {
   display: flex;
-  justify-content: center;
   padding: 10px 0;
-  background: variables.$navGradient;
 }
 
 .nav-list {
@@ -79,6 +82,7 @@ nav {
 @include mixins.mobile {
   header {
     padding: 10px 0;
+    flex-direction: column;
   }
 
   nav {

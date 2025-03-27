@@ -4,10 +4,6 @@
 .search-container {
   display: flex;
   justify-content: center;
-  position: absolute;
-  right: 30px;
-  top: 50%;
-  transform: translateY(-50%);
 
   input {
     padding: 8px;
@@ -15,6 +11,9 @@
     border: 2px solid variables.$yellow;
     border-radius: 5px;
     font-size: 16px;
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+
 
     &:focus {
       outline: none;
@@ -23,8 +22,6 @@
 
     &::placeholder {
       color: variables.$gray1;
-      font-family: "Playfair Display", serif;
-      font-weight: 600;
 
     }
   }
@@ -54,10 +51,16 @@
   }
 }
 
+@include mixins.tablet {
+  .search-container {
+    input {
+      width: 150px;
+    }
+  }
+}
+
 @include mixins.mobile {
   .search-container {
-    position: unset;
-    transform: unset;
 
     input {
       padding: 5px;
