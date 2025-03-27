@@ -77,6 +77,14 @@ nav {
 }
 
 @include mixins.mobile {
+  header {
+    padding: 10px 0;
+  }
+
+  nav {
+    margin-bottom: 10px;
+  }
+
   .menu-toggle {
     display: block;
   }
@@ -105,13 +113,4 @@ nav {
     margin: 10px 0;
   }
 
-  #gallery {
-    justify-content: space-around;
-  }
-
-  .art-item {
-    flex: 1 1 100%;
-    /* Full width on small screens */
-    max-width: 90%;
-  }
 }
