@@ -13,3 +13,21 @@ h2 {
   margin: 4rem 0;
   text-align: center;
 }
+
+h3 {
+  font-family: "Cinzel Decorative", serif;
+  font-size: 2em;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 3rem 0;
+  text-align: center;
+}
+
+p {
+  &.main-text {
+    font-size: 1.5em;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 20px;
+  }
+}

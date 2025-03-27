@@ -44,6 +44,22 @@ h2 {
   text-align: center;
 }
 
+h3 {
+  font-family: "Cinzel Decorative", serif;
+  font-size: 2em;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 3rem 0;
+  text-align: center;
+}
+
+p.main-text {
+  font-size: 1.5em;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 20px;
+}
+
 footer {
   background: radial-gradient(circle, #9D4EDD, #FFFFFF);
   color: white;
@@ -330,8 +346,8 @@ nav {
   font-family: "Playfair Display", serif;
   font-weight: 600;
   outline: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-  border: 2px solid #444;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(68, 68, 68, 0.6117647059);
 }
 .search-container input:focus {
   outline: none;
@@ -339,6 +355,7 @@ nav {
 }
 .search-container input::placeholder {
   color: #444;
+  opacity: 0.5;
 }
 .search-container button {
   padding: 8px 12px;
@@ -382,12 +399,19 @@ nav {
   font-family: "Cinzel Decorative", serif;
   font-weight: 600;
   font-style: normal;
-  font-size: 90px;
+  font-size: 100px;
   background-image: linear-gradient(135deg, #41EAD4, #9D4EDD, #4D96FF);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.0784313725), -1px -1px 2px rgba(0, 0, 0, 0.1098039216), 1px -1px 2px rgba(0, 0, 0, 0.1411764706), -1px 1px 0px rgba(0, 0, 0, 0.2117647059);
+}
+
+.intro__title {
+  font-size: 2.5em;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 20px;
 }
 
 footer {
