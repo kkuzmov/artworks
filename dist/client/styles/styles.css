@@ -58,13 +58,13 @@ footer {
 }
 
 .header {
-  background: linear-gradient(135deg, #41EAD4, #9D4EDD, #4D96FF);
+  background: #fff;
   color: white;
   padding: 0 40px;
   text-align: center;
   font-size: 1.5em;
   font-weight: bold;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
   position: relative;
 }
 .header__wrapper {
@@ -91,10 +91,10 @@ nav {
 
 .nav-list a {
   text-decoration: none;
-  color: #fff;
+  color: #444;
   font-size: 0.9em;
   transition: all 0.3s ease-in-out;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.0784313725), -1px -1px 2px rgba(0, 0, 0, 0.1098039216), 1px -1px 2px rgba(0, 0, 0, 0.1411764706), -1px 1px 0px rgba(0, 0, 0, 0.2117647059);
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.0784313725), 2px 2px 1px rgba(0, 0, 0, 0.1098039216), -1px 2px 6px rgba(0, 0, 0, 0.1411764706), 0px 0px 4px rgba(0, 0, 0, 0.2117647059);
 }
 .nav-list a:hover {
   text-underline-offset: 5px;
@@ -325,15 +325,17 @@ nav {
 .search-container input {
   padding: 8px;
   width: 250px;
-  border: 2px solid #FFD700;
   border-radius: 5px;
   font-size: 16px;
   font-family: "Playfair Display", serif;
   font-weight: 600;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  border: 2px solid #444;
 }
 .search-container input:focus {
   outline: none;
-  box-shadow: 0 0 5px #fff;
+  border: 2px solid #FFD700;
 }
 .search-container input::placeholder {
   color: #444;
@@ -341,8 +343,8 @@ nav {
 .search-container button {
   padding: 8px 12px;
   margin-left: 8px;
-  background: #9D4EDD;
-  color: white;
+  background: #FFD700;
+  color: #444;
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -388,10 +390,16 @@ nav {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.0784313725), -1px -1px 2px rgba(0, 0, 0, 0.1098039216), 1px -1px 2px rgba(0, 0, 0, 0.1411764706), -1px 1px 0px rgba(0, 0, 0, 0.2117647059);
 }
 
+footer {
+  position: unset;
+  width: 100%;
+  padding: 0;
+}
+
 /* CTA Section */
 #discover-cta {
   text-align: center;
-  padding: 50px 20px;
+  padding: 0 0 40px;
   background-color: #eee8dc;
   border-radius: 10px;
   border: 3px solid #9D4EDD;

@@ -2,14 +2,14 @@
 @use "../abstracts/mixins";
 
 .header {
-  background: variables.$navGradient;
+  background: variables.$white;
 
   color: white;
   padding: 0 40px;
   text-align: center;
   font-size: 1.5em;
   font-weight: bold;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
   position: relative;
 
 
@@ -40,11 +40,11 @@ nav {
 
 .nav-list a {
   text-decoration: none;
-  color: variables.$white;
+  color: variables.$gray1;
   font-size: 0.9em;
   transition: all 0.3s ease-in-out;
   text-shadow:
-    1px 1px 2px #00000014, -1px -1px 2px #0000001c, 1px -1px 2px #00000024, -1px 1px 0px #00000036;
+    1px 1px 5px rgba(0, 0, 0, 0.0784313725), 2px 2px 1px rgba(0, 0, 0, 0.1098039216), -1px 2px 6px rgba(0, 0, 0, 0.1411764706), 0px 0px 4px rgba(0, 0, 0, 0.2117647059);
 
   &:hover {
     text-underline-offset: 5px;

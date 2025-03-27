@@ -8,16 +8,17 @@
   input {
     padding: 8px;
     width: 250px;
-    border: 2px solid variables.$yellow;
     border-radius: 5px;
     font-size: 16px;
     font-family: "Playfair Display", serif;
     font-weight: 600;
-
+    outline: none;
+    box-shadow: 0 0 5px rgba(variables.$black, 0.5);
+    border: 2px solid variables.$gray1;
 
     &:focus {
       outline: none;
-      box-shadow: 0 0 5px variables.$white;
+      border: 2px solid variables.$yellow;
     }
 
     &::placeholder {
@@ -29,8 +30,8 @@
   button {
     padding: 8px 12px;
     margin-left: 8px;
-    background: variables.$purple;
-    color: white;
+    background: variables.$yellow;
+    color: variables.$gray1;
     border: none;
     cursor: pointer;
     border-radius: 5px;
