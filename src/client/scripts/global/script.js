@@ -53,30 +53,46 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((response) => response.json())
       .then((data) => {
         if (!gallery) return;
+
         data.data.forEach((artwork) => {
           const artItem = document.createElement("div");
           artItem.setAttribute("tabindex", "0");
           artItem.classList.add("art-item");
+
+          const imageUrl = artwork.image_id
+            ? `https://www.artic.edu/iiif/2/${artwork.image_id}/full/300,/0/default.jpg`
+            : "../client/assets/images/placeholder.jpg";
+
           artItem.innerHTML = `
-                      <img src="https://www.artic.edu/iiif/2/${
-                        artwork.image_id
-                      }/full/300,/0/default.jpg" alt="${artwork.title}">
-                      <h2>${artwork.title}</h2>
-                      <p><strong>Artist:</strong> ${
-                        artwork.artist_title || "Unknown"
-                      }</p>
-                      <p><strong>Year:</strong> ${
-                        artwork.date_display || "N/A"
-                      }</p>
-                      <img src="../client/assets/images/zoom.png" width="35px" alt="Open additional info" height="35px" class="zoom-icon" data-id="${
-                        artwork.id
-                      }">
-                  `;
+                    <img src="${imageUrl}" alt="${
+            artwork.title
+          }" class="art-image">
+                    <h2>${artwork.title}</h2>
+                    <p><strong>Artist:</strong> ${
+                      artwork.artist_title || "Unknown"
+                    }</p>
+                    <p><strong>Year:</strong> ${
+                      artwork.date_display || "N/A"
+                    }</p>
+                    <img src="assets/images/zoom.png" width="35px" alt="Open additional info" height="35px" class="zoom-icon" data-id="${
+                      artwork.id
+                    }">
+                `;
+
+          // Handle image errors dynamically
+          const imgElement = artItem.querySelector(".art-image");
+          imgElement.onerror = function () {
+            this.onerror = null; // Prevent infinite loop
+            this.src = "../client/assets/images/placeholder.png"; // Fallback to placeholder
+          };
+
           gallery.appendChild(artItem);
+
+          // Open modal on Enter key
           artItem.addEventListener("keydown", (event) => {
             if (event.key === "Enter") {
               const zoomIcon = artItem.querySelector(".zoom-icon");
-              zoomIcon.click(); // Trigger click event when Enter is pressed
+              zoomIcon.click(); // Trigger click event
             }
           });
         });
