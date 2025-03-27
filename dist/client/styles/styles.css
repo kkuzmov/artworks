@@ -167,52 +167,44 @@ nav {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid #FFD700;
+  overflow: hidden;
 }
-
 .art-item:hover {
   transform: scale(1.05);
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
-
-.art-item > img:not(.zoom-icon) {
+.art-item:hover .zoom-icon {
+  opacity: 1;
+}
+.art-item__image-container {
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.art-item img:not(.zoom-icon) {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   border-radius: 8px;
 }
-
 .art-item h2 {
   font-size: 1.3em;
   margin: 10px 0;
   color: #6d4c41;
 }
-
 .art-item p {
   font-size: 1em;
   color: #444;
 }
 
-/* Artwork Card */
-.art-item {
-  position: relative;
-  background: white;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  cursor: pointer;
-  border: 2px solid #FFD700;
-}
-
-.art-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
-}
-.art-item:hover .zoom-icon {
-  opacity: 1;
-}
-
-/* Zoom Icon */
 .zoom-icon {
   position: absolute;
   bottom: 10px;
@@ -225,7 +217,6 @@ nav {
   transform: scale(1.3);
 }
 
-/* Loader */
 .loader {
   display: none;
   position: fixed;

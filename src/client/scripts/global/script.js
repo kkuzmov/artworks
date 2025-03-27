@@ -64,9 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
             : "../client/assets/images/placeholder.jpg";
 
           artItem.innerHTML = `
+                    <div class="art-item__image-container">
                     <img src="${imageUrl}" alt="${
             artwork.title
-          }" class="art-image">
+          }" class="art-image"></div>
                     <h2>${artwork.title}</h2>
                     <p><strong>Artist:</strong> ${
                       artwork.artist_title || "Unknown"
@@ -74,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <p><strong>Year:</strong> ${
                       artwork.date_display || "N/A"
                     }</p>
-                    <img src="assets/images/zoom.png" width="35px" alt="Open additional info" height="35px" class="zoom-icon" data-id="${
+                    <img src="../client/assets/images/zoom.png" width="35px" alt="Open additional info" height="35px" class="zoom-icon" data-id="${
                       artwork.id
                     }">
                 `;
