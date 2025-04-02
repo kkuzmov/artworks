@@ -10,7 +10,7 @@ const glob = require("glob");
 const ttfToWoff = require("gulp-ttf2woff");
 //filepaths
 const templateFilepaths = "./src/pages/*.hbs";
-const distFolderPath = "./dist/pages";
+const distFolderPath = "./dist";
 
 function compilateHbs(cb) {
   function getData(hbsDataFilePath) {

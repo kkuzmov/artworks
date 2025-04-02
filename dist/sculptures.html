@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to XG Gallery</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./client/assets/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./client/assets/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./client/assets/images/favicon-16x16.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./client/styles/styles.css" />
+  </head>  <body>
+            <header class="header">
+                 <div class="header__wrapper wrapper">
+                 <nav>
+                   <div class="menu-toggle" id="mobile-menu">
+                     <span class="bar"></span>
+                     <span class="bar"></span>
+                     <span class="bar"></span>
+                   </div>
+                   <ul class="nav-list">
+                     <li><a href="index.html">Home</a></li>
+                     <li><a href="paintings.html">Paintings</a></li>
+                     <li><a href="sculptures.html">Sculptures</a></li>
+                     <li><a href="textiles.html">Textiles</a></li>
+                   </ul>
+                 </nav>          <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Search artworks..." />
+                        <button id="search-button">Search</button>
+                      </div>     </div>
+            </header>    <main >
+      <div class="wrapper">
+        <h1>Sculptures at XG Gallery</h1>
+        <h2>Sculpture has the unique ability to transform space, bringing form and dimension to artistic expression. At XG Gallery, we feature an extraordinary range of sculptural works, from finely carved marble statues to bold, avant-garde metal constructions. Our collection highlights the skill and vision of artists who shape raw materials into breathtaking figures, abstract forms, and thought-provoking installations. Experience the timeless artistry of sculpture in a way that transcends the ordinary.</h2>
+        <div id="gallery"></div>
+      </div> 
+      </main>
+    <div id="art-modal" class="modal">
+      <div class="modal__content" id="modal-content"></div>
+    </div>    <footer>
+      <p>© 2025 XG Gallery | All rights reserved.</p>
+    </footer>    <script src="./client/scripts/global/script.js"></script>  </body>
+</html>

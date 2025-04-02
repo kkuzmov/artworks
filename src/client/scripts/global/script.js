@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           const imageUrl = artwork.image_id
             ? `https://www.artic.edu/iiif/2/${artwork.image_id}/full/300,/0/default.jpg`
-            : "../client/assets/images/placeholder.jpg";
+            : "./client/assets/images/placeholder.jpg";
 
           artItem.innerHTML = `
                     <div class="art-item__image-container">
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }" class="art-image"></div>
                     <h2>${artwork.title}</h2>
                     <p> ${artwork.artist_title || "Unknown"}</p>
-                    <img src="../client/assets/images/zoom.png" width="35px" alt="Open additional info" height="35px" class="zoom-icon" data-id="${
+                    <img src="./client/assets/images/zoom.png" width="35px" alt="Open additional info" height="35px" class="zoom-icon" data-id="${
                       artwork.id
                     }">
                 `;
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const imgElement = artItem.querySelector(".art-image");
           imgElement.onerror = function () {
             this.onerror = null; // Prevent infinite loop
-            this.src = "../client/assets/images/placeholder.png"; // Fallback to placeholder
+            this.src = "./client/assets/images/placeholder.png"; // Fallback to placeholder
           };
 
           gallery.appendChild(artItem);
