@@ -1,9 +1,19 @@
-@keyframes spin {
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes fadeIn {
   0% {
-    transform: rotate(0deg);
+    opacity: 0;
   }
 
   100% {
-    transform: rotate(360deg);
+    opacity: 1;
   }
 }

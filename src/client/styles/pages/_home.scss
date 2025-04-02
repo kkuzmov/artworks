@@ -4,7 +4,10 @@
 .xg-title {
   text-align: center;
 
+
   &>span {
+    opacity: 0;
+    display: inline-block;
     display: block;
     font-family: "Cinzel Decorative", serif;
     font-weight: 600;
@@ -16,9 +19,17 @@
     color: transparent;
     text-shadow:
       1px 1px 2px #00000014, -1px -1px 2px #0000001c, 1px -1px 2px #00000024, -1px 1px 0px #00000036;
+    transition: opacity 1s ease-in-out;
   }
 
+  &.show {
+    opacity: 1;
+  }
 }
+
+
+
+
 
 .intro {
   &__title {

@@ -1,9 +1,17 @@
-@keyframes spin {
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes fadeIn {
   0% {
-    transform: rotate(0deg);
+    opacity: 0;
   }
   100% {
-    transform: rotate(360deg);
+    opacity: 1;
   }
 }
 body {
@@ -34,6 +42,15 @@ h1 {
   line-height: 1.2;
   margin: 4rem 0;
   text-align: center;
+  opacity: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typewriter 1s steps(20) 1s forwards, fadeIn 0.5s forwards;
+  transition: opacity 1s ease-in-out;
+}
+h1.show {
+  opacity: 1;
 }
 
 h2 {
@@ -108,7 +125,7 @@ nav {
 .nav-list a {
   text-decoration: none;
   color: #333333;
-  font-size: 0.9em;
+  font-size: 1.1em;
   transition: all 0.3s ease-in-out;
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.0784313725), 2px 2px 1px rgba(0, 0, 0, 0.1098039216), -1px 2px 6px rgba(0, 0, 0, 0.1411764706), 0px 0px 0px rgba(0, 0, 0, 0.2117647059);
 }
@@ -403,6 +420,8 @@ nav {
   text-align: center;
 }
 .xg-title > span {
+  opacity: 0;
+  display: inline-block;
   display: block;
   font-family: "Cinzel Decorative", serif;
   font-weight: 600;
@@ -413,6 +432,10 @@ nav {
   -webkit-background-clip: text;
   color: transparent;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.0784313725), -1px -1px 2px rgba(0, 0, 0, 0.1098039216), 1px -1px 2px rgba(0, 0, 0, 0.1411764706), -1px 1px 0px rgba(0, 0, 0, 0.2117647059);
+  transition: opacity 1s ease-in-out;
+}
+.xg-title.show {
+  opacity: 1;
 }
 
 .intro__title {

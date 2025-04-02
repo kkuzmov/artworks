@@ -4,6 +4,16 @@ h1 {
   line-height: 1.2;
   margin: 4rem 0;
   text-align: center;
+  opacity: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typewriter 1s steps(20) 1s forwards, fadeIn 0.5s forwards;
+  transition: opacity 1s ease-in-out;
+
+  &.show {
+    opacity: 1;
+  }
 }
 
 h2 {
