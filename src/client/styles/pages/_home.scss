@@ -5,6 +5,7 @@
   text-align: center;
 
   &>span {
+    display: block;
     font-family: "Cinzel Decorative", serif;
     font-weight: 600;
     font-style: normal;
@@ -84,7 +85,7 @@ footer {
 
 .cta-card:hover {
   transform: scale(1.05);
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 12px variables.$yellow;
 }
 
 .cta-card:active {
